@@ -1,0 +1,120 @@
+/* Algemene reset en basisinstellingen */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Basisinstellingen voor de body */
+  body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #F6F6F6; /* BACKGROUND 1 */
+    color: #4A4B4C; /* TEXT COLORS */
+    font-size: 18px; /* Body text */
+    line-height: 1.6;
+  }
+  
+  /* Algemene instellingen voor de header */
+  header {
+    background-color: #FFFFFF; /* BACKGROUND 2 */
+    border-bottom: 1px solid #C3C3C3; /* TERTIARY */
+    padding: 20px 0;
+    text-align: center;
+  }
+  
+  /* Logo instellingen */
+  .logo {
+    max-width: 150px;
+    height: auto;
+  }
+  
+  /* Algemene instellingen voor de main sectie */
+  main {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: #FFFFFF; /* BACKGROUND 2 */
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Algemene instellingen voor de huis lijst */
+  .house-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  /* Styling voor lege staat */
+  .empty-state {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .empty-state img {
+    width: 120px;
+    height: auto;
+  }
+  
+  /* Styling voor individuele huis kaarten */
+  .house-card {
+    width: 100%;
+    max-width: 700px; /* Maximaal breedte van de kaart */
+    border: 1px solid #C3C3C3; /* TERTIARY kleur voor de rand */
+    border-radius: 10px; /* Afgeronde hoeken */
+    overflow: hidden; /* Zorgt ervoor dat geen inhoud uit de kaart loopt */
+    margin-bottom: 20px; /* Ruimte onder elke kaart */
+    background-color: #FFFFFF; /* Achtergrondkleur van de kaart */
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.2); /* Schaduw voor diepte-effect */
+  }
+  
+  /* Styling voor de afbeelding van een huis */
+  .house-image {
+    width: 100%;
+    height: 180px; /* iets smaller om meer proportioneel te zijn */
+    object-fit: cover;
+  }
+  
+  /* Styling voor informatie over het huis */
+  .house-info {
+    padding: 20px;
+  }
+  
+  /* Styling voor huis titel */
+  .house-info h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 22px; /* Header 2 */
+    margin: 0 0 10px 0;
+    color: #4A4B4C; /* TEXT COLORS */
+  }
+  
+  /* Styling voor beschrijving van het huis */
+  .description {
+    font-size: 16px; /* Listing information */
+    color: #4A4B4C; /* TEXT COLORS */
+  }
+  
+  /* Styling voor prijs van het huis */
+  .price {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px; /* Buttons and tabs */
+    color: #EB5440; /* SECONDARY */
+    margin: 10px 0;
+  }
+  
+  /* Styling voor grootte en aantal kamers van het huis */
+  .size, .rooms, .garage {
+    font-size: 14px; /* Input field title */
+    color: #4A4B4C; /* TEXT COLORS */
+  }
+  
+  /* Hyperlinks */
+  a {
+    color: #067BC2; /* HYPERLINK */
+    text-decoration: none;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
