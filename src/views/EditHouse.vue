@@ -74,6 +74,7 @@
 import { ref, onMounted } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { useStore } from 'vuex';
+import { API_KEY } from '@/api';
 
 export default {
   name: 'EditHouse',
@@ -128,7 +129,7 @@ export default {
         const response = await fetch(`https://api.intern.d-tt.nl/api/houses/${houseId}`, {
           method: 'POST',
           headers: {
-            'X-Api-Key': 'U4tnCWEYc37uJdDpN8oyiQOGqXTajzgK',
+            'X-Api-Key': API_KEY,
           },
           body: formData,
         });
@@ -153,7 +154,7 @@ export default {
       return await fetch(`https://api.intern.d-tt.nl/api/houses/${houseId}/upload`, {
         method: 'POST',
         headers: {
-          'X-Api-Key': 'U4tnCWEYc37uJdDpN8oyiQOGqXTajzgK',
+          'X-Api-Key': API_KEY,
         },
         body: formData,
       });
