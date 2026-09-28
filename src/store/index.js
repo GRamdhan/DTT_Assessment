@@ -1,4 +1,5 @@
 import { createStore } from 'vuex';
+import { API_KEY } from '../api';
 
 const store = createStore({
   state() {
@@ -73,7 +74,7 @@ const store = createStore({
       try {
         const response = await fetch('https://api.intern.d-tt.nl/api/houses', {
           headers: {
-            'X-Api-Key': 'U4tnCWEYc37uJdDpN8oyiQOGqXTajzgK', // API-sleutel voor authenticatie
+            'X-Api-Key': API_KEY, // API-sleutel uit .env (zie .env.example)
           },
         });
         const data = await response.json();
@@ -96,7 +97,7 @@ const store = createStore({
         const response = await fetch('https://api.intern.d-tt.nl/api/houses', {
           method: 'POST', // POST-aanroep om een nieuw huis aan te maken
           headers: {
-            'X-Api-Key': 'U4tnCWEYc37uJdDpN8oyiQOGqXTajzgK', // API-sleutel
+            'X-Api-Key': API_KEY, // API-sleutel uit .env
           },
           body: formData, // Stuur de formData als body
         });
@@ -122,7 +123,7 @@ const store = createStore({
       try {
         const response = await fetch(`https://api.intern.d-tt.nl/api/houses/${id}`, {
           headers: {
-            'X-Api-Key': 'U4tnCWEYc37uJdDpN8oyiQOGqXTajzgK', // API-sleutel
+            'X-Api-Key': API_KEY, // API-sleutel uit .env
           },
         });
         const data = await response.json();
@@ -148,7 +149,7 @@ const store = createStore({
         const response = await fetch(`https://api.intern.d-tt.nl/api/houses/${house.id}`, {
           method: 'POST', // Gebruik POST hier voor update
           headers: {
-            'X-Api-Key': 'U4tnCWEYc37uJdDpN8oyiQOGqXTajzgK', // API-sleutel
+            'X-Api-Key': API_KEY, // API-sleutel uit .env
           },
           body: formData, // Stuur de formData als body
         });
@@ -166,12 +167,31 @@ const store = createStore({
       }
     },
 
+    async uploadHouseImage(_, { houseId, imageFile }) {
+      // createHouse geeft het volledige huis-object terug; accepteer zowel een object als een ID
+      const id = typeof houseId === 'object' && houseId !== null ? houseId.id : houseId;
+      const formData = new FormData();
+      formData.append('image', imageFile);
+
+      const response = await fetch(`https://api.intern.d-tt.nl/api/houses/${id}/upload`, {
+        method: 'POST',
+        headers: {
+          'X-Api-Key': API_KEY, // API-sleutel uit .env
+        },
+        body: formData,
+      });
+
+      if (!response.ok) {
+        throw new Error(`Image upload failed: ${response.status}`);
+      }
+    },
+
     async deleteHouse({ commit }, houseId) {
       try {
         const response = await fetch(`https://api.intern.d-tt.nl/api/houses/${houseId}`, {
           method: 'DELETE', // DELETE-aanroep om een huis te verwijderen
           headers: {
-            'X-Api-Key': 'U4tnCWEYc37uJdDpN8oyiQOGqXTajzgK', // API-sleutel
+            'X-Api-Key': API_KEY, // API-sleutel uit .env
           },
         });
 
